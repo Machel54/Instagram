@@ -32,4 +32,6 @@ class Profile(models.Model):
     profile_image = models.ImageField(upload_to = 'profile')
     bio = models.TextField()
     
-  
+class NewsletterRecipients(models.Model):
+    name = models.CharField(max_length=30)
+    email = models.EmailField()
