@@ -1,4 +1,6 @@
 from django.shortcuts import render
+import datetime as dt
+from .models import Editor,Profile
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 
@@ -6,7 +8,6 @@ from django.contrib.auth.decorators import login_required
 
 def welcome(request):
     return render(request, 'all-instagram/index.html')
-
 
 @login_required(login_url='/accounts/login/')
 def search_results(request):
