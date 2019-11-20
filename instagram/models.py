@@ -18,19 +18,15 @@ from django.contrib.auth.models import User
 #     def save_user(self):
 #         self.save()
     
-class tags(models.Model):
-    name = models.CharField(max_length= 20)
-    
-    def __str__(self):
-        return self.name
+
    
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE, related_name='profile')
-    profile_image = models.ImageField(default='default.jpg', upload_to='profile_pics')
+    profile_image = models.ImageField( upload_to='profile_pics')
     first_name = models.CharField(max_length=20)
     last_name = models.CharField(max_length=20)
     email = models.EmailField()
-    bio = models.TextField(default="Hello Friends")
+    bio = models.TextField(default="Your bio")
     
     def __str__(self):
         return f'{self.user.username}'
@@ -75,7 +71,6 @@ class Post(models.Model):
     post_name = models.CharField(max_length=20)
     post_caption = models.TextField()
     user = models.ForeignKey(User, related_name='posts')
-    tags = models.ManyToManyField(tags)
     likes = models.ManyToManyField(User, related_name= 'likes', blank = True)
     pub_date = models.DateTimeField(auto_now_add= True)
     
