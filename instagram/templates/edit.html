@@ -7,7 +7,7 @@
     <div class="loginform">
         <form  action="{%  url 'edit' %}" method="post" enctype="multipart/form-data" >
             {% csrf_token %}
-            {% bootstrap_form new_profile %}
+            {% bootstrap_form profileform %}
             <div class="form-group" style="text-align: center; color: white;">
                 <input style="color: white;" type="submit" class="btn btn-primary" value="Update">
             </div>
