@@ -87,6 +87,7 @@ def user(request, user_id):
 class PostCreateView(LoginRequiredMixin, CreateView):
     model = Post
     fields = ['image', 'post_caption']
+    template_name = 'gram/post_form.html'
     
     def form_valid(self, form):
         form.instance.user = self.request.user
